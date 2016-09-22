@@ -1,8 +1,11 @@
-import numpy, random
+#normalized_hani_7_8.txt
+#normalized_hani_8_recent.txt
+
+import numpy, random, sys
 from scipy import spatial
 word_vectors = []
 
-with open('model.vec') as f:
+with open(sys.argv[1]) as f:
     for line in f:
         splitted_line = line.split()
         word_vectors.append({
@@ -12,7 +15,7 @@ with open('model.vec') as f:
         })
 
 word_to_test = {
-    "word": "삼성전자",
+    "word": sys.argv[2],
     "vector": None,
     "cosine_similarity": 0
 }
@@ -24,9 +27,6 @@ for word_vector in word_vectors:
 word_vectors.pop(0)
 max_cosine_vector = word_vectors.pop(0)
 
-#max_cosine_word = next (iter (word_vectors.keys()))
-#max_cosine_word_vector = word_vectors[max_cosine_word]
-#print(max_cosine_word_vector)
 max_cosine_vector["cosine_similarity"] = 1 - spatial.distance.cosine(word_to_test["vector"], max_cosine_vector["vector"])
 for word_vector in word_vectors:
     if max_cosine_vector["vector"].shape[0] == word_vector["vector"].shape[0]:

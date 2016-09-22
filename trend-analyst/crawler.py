@@ -13,11 +13,11 @@ def crawl(url, title):
 
 for n in range(762166, 755000, -1):
     url = "http://www.hani.co.kr/arti/economy/economy_general/" + str(n) + ".html"
-    crawl(url, "raw_hani_8_recent.txt")
+    crawl(url, "data/raw_hani_8_recent.txt")
 
 for n in range(755000, 750000, -1):
     url = "http://www.hani.co.kr/arti/economy/economy_general/" + str(n) + ".html"
-    crawl(url, "raw_hani_7_8.txt")
+    crawl(url, "data/raw_hani_7_8.txt")
 
 
 

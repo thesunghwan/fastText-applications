@@ -1,8 +1,11 @@
 import re
+import sys
 
+filename = "hani_7_8.txt"
+#filename = "hani_8_recent.txt"
 
-raw_file = open('raw_hani_7_8.txt')
-train_file = open('train.txt','w')
+raw_file = open('data/' + sys.argv[1])
+train_file = open('data/normalized_' + sys.argv[1],'w')
 
 for lines in raw_file:
     parenthesis_removed = re.sub(r'\([^)]*\)', '', lines)
