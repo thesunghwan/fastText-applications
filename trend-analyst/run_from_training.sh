@@ -2,8 +2,9 @@
 #hani_8_recent
 word="삼성전자"
 
-prefix="hani_8_recent"
+prefix="hani_7_8"
 filename=$prefix".txt"
+
 normalized_prefix="normalized_"$prefix
 normalized_filename="normalized_"$filename
 
